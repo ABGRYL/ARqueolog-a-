@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ zonaArqueologica.nombre }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Aquí puedes mostrar los detalles de la zona arqueológica -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ zonaArqueologica.nombre }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Galeria de imagenes -->
+  <swiper-container [pagination]="true" [loop]="true">
+    <swiper-slide *ngFor="let imagen of zonaArqueologica.galeria">
+      <img src="{{imagen}}">
+    </swiper-slide>
+  </swiper-container>
+
+  <div class="ion-padding">
+
+    <div class="descripcion">
+      <h1>Descripción:</h1>
+      <p> {{zonaArqueologica.descripcion}} </p>
+    </div>
+
+    <hr />
+
+    <div class="historia">
+      <h1>Historia:</h1>
+      <p>{{zonaArqueologica.historia}}</p>
+    </div>
+
+    <hr />
+
+    <div class="estado">
+      <h1>Estado: </h1>
+      <p> {{zonaArqueologica.estado}} </p>
+    </div>
+
+    <hr />
+
+    <div class="horario">
+      <h1>Horarios:</h1>
+      <p> {{zonaArqueologica.horario}} </p>
+    </div>
+
+    <hr />
+
+    <div class="entrada">
+      <h1>Costo de entrada:</h1>
+      <p> {{zonaArqueologica.entrada}} </p>
+    </div>
+
+    <hr />
+
+    <ion-button class="btn-ar" color="warning" (click)="abrirAR(zonaArqueologica)">
+      Vista AR
+      <ion-icon slot="end" name="aperture"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

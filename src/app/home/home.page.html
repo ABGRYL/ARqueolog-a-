@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Zonas Arqueologicas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Zonas Arqueologicas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="zonas">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let zona of ZonasArqueologicas">
+          <ion-card (click)="mostrarDetalleZona(zona)">
+            <img class="imagen" src={{zona.imagen}} />
+            <ion-card-header>
+              <ion-card-title>{{zona.nombre}}</ion-card-title>
+              <ion-card-subtitle> {{zona.estado}} </ion-card-subtitle>
+            </ion-card-header>
+        
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>
